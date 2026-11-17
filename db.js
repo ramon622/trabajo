@@ -25,6 +25,7 @@ fs.mkdirSync(path.dirname(FILE), { recursive: true });
 
 const db = new Database(FILE);
 db.exec('PRAGMA foreign_keys = ON'); // necesario en SQLite para que se respeten las claves ajenas
+db.exec('PRAGMA journal_mode = WAL');
 
 db.exec(`
   CREATE TABLE IF NOT EXISTS groups (
