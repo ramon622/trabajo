@@ -80,6 +80,7 @@ router.post('/', requireLogin, requireAdmin, (req, res) => {
       return fail('Usuario, nombre, email y contraseña son obligatorios.');
     }
     if (password.length < 6) return fail('La contraseña debe tener al menos 6 caracteres.');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) return fail('El email no es válido.');
     if (db.get('SELECT 1 AS ok FROM users WHERE username = ?', form.username)) {
       return fail('Ese nombre de usuario ya existe.');
     }
