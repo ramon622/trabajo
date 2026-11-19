@@ -43,7 +43,7 @@ small { color: #666; font-weight: 400; }
 .chat-log { flex: 1; overflow-y: auto; background: #e9edf2; border-radius: 8px; padding: .8rem; display: flex; flex-direction: column; gap: .5rem; }
 .msg { display: flex; align-items: flex-end; gap: .5rem; max-width: 80%; }
 .msg.mine { align-self: flex-end; flex-direction: row-reverse; }
-.bubble { background: #fff; border-radius: 12px; padding: .45rem .7rem; box-shadow: 0 1px 1px rgba(0,0,0,.08); min-width: 80px; overflow-wrap: anywhere; }
+.bubble { background: #fff; border-radius: 16px; padding: .45rem .7rem; box-shadow: 0 1px 1px rgba(0,0,0,.08); min-width: 80px; overflow-wrap: anywhere; }
 .msg.mine .bubble { background: #d6e6fb; }
 .bubble .author { font-size: .78rem; font-weight: 700; color: #1f3a5f; margin-bottom: .1rem; }
 .bubble .text { white-space: pre-wrap; }
