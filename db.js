@@ -57,6 +57,7 @@ db.exec(`
 
   CREATE INDEX IF NOT EXISTS idx_messages_group ON messages (group_id, id);
   CREATE INDEX IF NOT EXISTS idx_users_group ON users (group_id);
+  CREATE INDEX IF NOT EXISTS idx_messages_user ON messages (user_id);
 `);
 
 // Administrador por defecto (solo si no existe ninguno)
