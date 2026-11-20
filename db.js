@@ -25,6 +25,9 @@ fs.mkdirSync(path.dirname(FILE), { recursive: true });
 
 const db = new Database(FILE);
 db.exec('PRAGMA foreign_keys = ON'); // necesario en SQLite para que se respeten las claves ajenas
+db.exec('PRAGMA journal_mode = WAL');
+db.exec('PRAGMA synchronous = NORMAL');
+db.exec('PRAGMA busy_timeout = 5000');
 
 db.exec(`
   CREATE TABLE IF NOT EXISTS groups (
@@ -53,6 +56,8 @@ db.exec(`
   );
 
   CREATE INDEX IF NOT EXISTS idx_messages_group ON messages (group_id, id);
+  CREATE INDEX IF NOT EXISTS idx_users_group ON users (group_id);
+  CREATE INDEX IF NOT EXISTS idx_messages_user ON messages (user_id);
 `);
 
 // Administrador por defecto (solo si no existe ninguno)
