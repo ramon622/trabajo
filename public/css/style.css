@@ -52,3 +52,7 @@ small { color: #666; font-weight: 400; }
 .chat-form { display: flex; gap: .5rem; margin-top: .6rem; align-items: flex-end; }
 .chat-form textarea { flex: 1; resize: none; padding: .55rem; border: 1px solid #bbb; border-radius: 8px; font: inherit; max-height: 140px; }
 .center { text-align: center; margin: auto; }
+
+.card ul { list-style: none; margin: 0; padding: 0; }
+.card ul li { display: flex; justify-content: space-between; align-items: center; padding: .4rem .2rem; border-bottom: 1px solid #f0f0f0; }
+.card ul li:last-child { border-bottom: 0; }
