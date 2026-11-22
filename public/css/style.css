@@ -40,11 +40,11 @@ small { color: #666; font-weight: 400; }
 .chat { display: flex; flex-direction: column; height: calc(100vh - 110px); min-height: 420px; }
 .chat-head { margin-bottom: .6rem; }
 .chat-head h1 { margin: 0; font-size: 1.4rem; }
-.chat-log { flex: 1; overflow-y: auto; background: #e9edf2; border-radius: 8px; padding: .8rem; display: flex; flex-direction: column; gap: .5rem; }
+.chat-log { flex: 1; overflow-y: auto; background: #eef0fb; border-radius: 8px; padding: .8rem; display: flex; flex-direction: column; gap: .5rem; }
 .msg { display: flex; align-items: flex-end; gap: .5rem; max-width: 80%; }
 .msg.mine { align-self: flex-end; flex-direction: row-reverse; }
-.bubble { background: #fff; border-radius: 12px; padding: .45rem .7rem; box-shadow: 0 1px 1px rgba(0,0,0,.08); min-width: 80px; overflow-wrap: anywhere; }
-.msg.mine .bubble { background: #d6e6fb; }
+.bubble { background: #fff; border-radius: 16px; padding: .45rem .7rem; box-shadow: 0 1px 1px rgba(0,0,0,.08); min-width: 80px; overflow-wrap: anywhere; }
+.msg.mine .bubble { background: #d9ebff; }
 .bubble .author { font-size: .78rem; font-weight: 700; color: #1f3a5f; margin-bottom: .1rem; }
 .bubble .text { white-space: pre-wrap; }
 .bubble .when { display: block; text-align: right; font-size: .7rem; color: #777; margin-top: .15rem; }
@@ -52,3 +52,7 @@ small { color: #666; font-weight: 400; }
 .chat-form { display: flex; gap: .5rem; margin-top: .6rem; align-items: flex-end; }
 .chat-form textarea { flex: 1; resize: none; padding: .55rem; border: 1px solid #bbb; border-radius: 8px; font: inherit; max-height: 140px; }
 .center { text-align: center; margin: auto; }
+
+.card ul { list-style: none; margin: 0; padding: 0; }
+.card ul li { display: flex; justify-content: space-between; align-items: center; padding: .4rem .2rem; border-bottom: 1px solid #f0f0f0; }
+.card ul li:last-child { border-bottom: 0; }
