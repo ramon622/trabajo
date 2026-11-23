@@ -88,7 +88,7 @@ router.post('/', requireLogin, requireAdmin, (req, res) => {
     if (db.get('SELECT 1 AS ok FROM users WHERE email = ?', form.email)) {
       return fail('Ese email ya está registrado.');
     }
-    if (db.get('SELECT 1 AS ok FROM users WHERE username = ?', form.username)) {
+    if (db.get('SELECT 1 AS ok FROM users WHERE LOWER(username) = LOWER(?)', form.username)) {
       return fail('Ese nombre de usuario ya existe.');
     }
 
