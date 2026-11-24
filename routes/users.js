@@ -79,8 +79,17 @@ router.post('/', requireLogin, requireAdmin, (req, res) => {
     if (!form.username || !form.name || !form.email || !password) {
       return fail('Usuario, nombre, email y contraseña son obligatorios.');
     }
+    if (!/^[a-zA-Z0-9_.-]{3,20}$/.test(form.username)) {
+      return fail('El usuario debe tener entre 3 y 20 caracteres (letras, números, puntos, guiones o guion bajo).');
+    }
+    if (form.name.length > 60) return fail('El nombre no puede superar los 60 caracteres.');
     if (password.length < 6) return fail('La contraseña debe tener al menos 6 caracteres.');
-    if (db.get('SELECT 1 AS ok FROM users WHERE username = ?', form.username)) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) return fail('El email no es válido.');
+    if (form.email.length > 254) return fail('El email no puede superar los 254 caracteres.');
+    if (db.get('SELECT 1 AS ok FROM users WHERE email = ?', form.email)) {
+      return fail('Ese email ya está registrado.');
+    }
+    if (db.get('SELECT 1 AS ok FROM users WHERE LOWER(username) = LOWER(?)', form.username)) {
       return fail('Ese nombre de usuario ya existe.');
     }
 
